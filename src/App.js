@@ -22,12 +22,23 @@ class App extends Component {
     this.setState(newState)
   }
 
+  deleteNote(index){
+    let notesArray = this.state.notes
+    notesArray.splice(index,1)
+    this.setState({
+      notes:notesArray
+    })
+    console.log('Deltou')
+  }
 
   render(){
     return (
       <section className="content">
           <CadForm createNote = {this.createNote.bind(this)}/>
-          <NoteList notes = {this.state.notes}/>
+          <NoteList 
+            notes = {this.state.notes}
+            deleteNote={this.deleteNote.bind(this)}
+          />
         </section>
     );
   }

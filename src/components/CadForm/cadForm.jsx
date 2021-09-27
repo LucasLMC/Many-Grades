@@ -11,7 +11,6 @@ class CadForm extends Component{
 
     _handleMudancaTitulo(event){
         this.title = event.target.value
-        console.log(this.title)
     }
 
     _handleMudancaTexto(event){
