@@ -15,6 +15,7 @@ class NoteCard extends Component {
             <DeleteIcon onClick={ 
               this.delete.bind(this)
             }/>
+            <h4>{this.props.category}</h4>
         </header>
         <p className="note_card_text">{this.props.text}</p>
       </section>

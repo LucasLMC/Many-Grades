@@ -1,21 +1,23 @@
 import React, { Component } from "react";
-import NoteList from "./components/NoteList";
-import CadForm from "./components/CadForm";
-import CategoryList from "./components/CategoryList";
+
 import './assets/App.css';
 import './assets/index.css';
+
+import CadForm from "./components/CadForm";
+import NoteList from "./components/NoteList";
+import CategoryList from "./components/CategoryList";
 class App extends Component {
   
   constructor(){
     super()
     this.state = {
-      notes : []
+      notes : [],
+      categories: [],
     }
   }
-
   
-  createNote(title, text){
-    const newNote = {title, text}
+  createNote(title, text, category){
+    const newNote = {title, text, category}
     const newNotesArray = [...this.state.notes, newNote]
     const newState = {
         notes:newNotesArray
@@ -29,15 +31,25 @@ class App extends Component {
     this.setState({
       notes:notesArray
     })
-    console.log('Deltou')
+  }
+
+  addCategory(name){
+    const newCategoryArray = [...this.state.categories, name]
+    const newState = {...this.state, categories:newCategoryArray}
+    this.setState(newState)
   }
 
   render(){
     return (
       <section className="content">
-          <CadForm createNote = {this.createNote.bind(this)}/>
+          <CadForm 
+              categories = {this.state.categories}
+              createNote = {this.createNote.bind(this)}/>
           <main className="main_content">
-            <CategoryList/>
+            <CategoryList 
+              categories = {this.state.categories}
+              addCategory = {this.addCategory.bind(this)}
+            />
             <NoteList 
               notes = {this.state.notes}
               deleteNote={this.deleteNote.bind(this)}
