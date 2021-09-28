@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import  NoteCard  from "../NoteCard/noteCard";
+import  NoteCard  from "../NoteCard";
 import "./style.css";
 class NoteList extends Component{
 

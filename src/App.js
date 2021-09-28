@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import NoteList from "./components/NoteList/noteList";
-import CadForm from "./components/CadForm/cadForm";
+import NoteList from "./components/NoteList";
+import CadForm from "./components/CadForm";
+import CategoryList from "./components/CategoryList";
 import './assets/App.css';
 import './assets/index.css';
 class App extends Component {
@@ -35,10 +36,13 @@ class App extends Component {
     return (
       <section className="content">
           <CadForm createNote = {this.createNote.bind(this)}/>
-          <NoteList 
-            notes = {this.state.notes}
-            deleteNote={this.deleteNote.bind(this)}
-          />
+          <main className="main_content">
+            <CategoryList/>
+            <NoteList 
+              notes = {this.state.notes}
+              deleteNote={this.deleteNote.bind(this)}
+            />
+          </main>
         </section>
     );
   }
