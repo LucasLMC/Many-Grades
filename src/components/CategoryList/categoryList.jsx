@@ -6,7 +6,6 @@ class CategoryList extends Component {
     constructor(){
         super()
         this.state = {categories: []}
-
         this._newCategories = this._newCategories.bind(this)
     }
 
