@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "./styles.css";
 
-class CategoryList extends React.Component {
+class CategoryList extends Component {
 
     constructor(){
         super()
