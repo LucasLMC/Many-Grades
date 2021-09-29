@@ -1,10 +1,12 @@
 .content {
     display: flex;
   }
-  
+  .main_content{
+    flex-grow: 3;
+  }
   :root {
-    --primary: #58a4b0;
-    --secondary: #373f51;
+    --primary: #cd5360;
+    --secondary: #286da8;
     --active-secondary: #cccccc;
     --background: #ffffff;
     --details-background: #ececec;
