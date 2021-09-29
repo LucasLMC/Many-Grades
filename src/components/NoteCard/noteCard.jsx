@@ -12,9 +12,10 @@ class NoteCard extends Component {
       <section className="note-card">
         <header className="note_card_header">
           <h3 className="note_card_title">{this.props.title}</h3>
-            <DeleteIcon onClick={ 
-              this.delete.bind(this)
-            }/>
+            <DeleteIcon 
+              onClick={this.delete.bind(this)}
+              className="deleteButton"  
+            />
             <h4>{this.props.category}</h4>
         </header>
         <p className="note_card_text">{this.props.text}</p>

@@ -4,7 +4,6 @@ import "./styles.css";
 class CategoryList extends React.Component {
     _handleInputEvent(e) {
         if(e.key === "Enter"){
-            console.log(e.key,"xuxu blz")
             let categoryValue = e.target.value
             this.props.addCategory(categoryValue)
         }
