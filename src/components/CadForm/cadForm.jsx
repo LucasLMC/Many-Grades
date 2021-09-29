@@ -7,7 +7,24 @@ class CadForm extends Component{
         super(props);
         this.title = "";
         this.text = "";
-        this.category="No Category"
+        this.category="No Category";
+        this.state = {categories: []}
+
+        this._newCategories = this._newCategories.bind(this)
+    }
+
+    
+    componentDidMount(){
+        this.props.categories.register(this._newCategories)
+    }
+    
+    componentWillUnmount(){
+        this.props.categories.unRegister(this._newCategories)
+    }
+    
+    
+    _newCategories(categories){
+        this.setState({...this.state,categories})
     }
 
     _handleChangeCategory(event){
@@ -41,9 +58,9 @@ class CadForm extends Component{
                 >
                     <option>No Category</option>
                     {
-                        this.props.categories.map(
-                            (category) => {
-                                return <option>{category}</option>
+                        this.state.categories.map(
+                            (category,index) => {
+                                return <option key ={index}>{category}</option>
                             })
                     }
                 </select>
@@ -59,7 +76,11 @@ class CadForm extends Component{
                     className="input_cad_form"
                     onChange={this._handleChangeText.bind(this)}
                 />
-                <button className="input_cad_form submit_cad_form">
+                <button className="input_cad_form submit_cad_form"
+                    onClick = {()=>{
+                        window.navigator.vibrate(200)
+                    }}
+                >
                     Criar Nota
                 </button>
             </form>

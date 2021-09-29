@@ -2,6 +2,26 @@ import React, { Component } from 'react';
 import "./styles.css";
 
 class CategoryList extends React.Component {
+
+    constructor(){
+        super()
+        this.state = {categories: []}
+
+        this._newCategories = this._newCategories.bind(this)
+    }
+
+    componentDidMount(){
+        this.props.categories.register(this._newCategories)
+    }
+
+    componentWillUnmount(){
+        this.props.categories.register(this._newCategories)
+    }
+
+    _newCategories(categories){
+        this.setState({...this.state, categories})
+    }
+
     _handleInputEvent(e) {
         if(e.key === "Enter"){
             let categoryValue = e.target.value
@@ -14,7 +34,7 @@ class CategoryList extends React.Component {
             <section className="category_list">
                 <ul className="category_list_ul">
                     {
-                        this.props.categories.map((category,index) =>
+                        this.state.categories.map((category,index) =>
                         {
                           return  <li key={index} className="category_list_item">{category} </li>
                         }

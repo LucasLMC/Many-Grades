@@ -20,16 +20,16 @@ class App extends Component {
     return (
       <section className="content">
           <CadForm 
-              categories = {this.categories.categories}
-              createNote = {this.notes.addNote}/>
+              categories = {this.categories}
+              createNote = {this.notes.addNote.bind(this.notes)}/>
           <main className="main_content">
             <CategoryList 
-              categories = {this.categories.categories}
-              addCategory = {this.categories.addCategory}
+              categories = {this.categories}
+              addCategory = {this.categories.addCategory.bind(this.categories)}
             />
             <NoteList 
-              notes = {this.notes.notes}
-              deleteNote={this.notes.deleteNote}
+              notes = {this.notes}
+              deleteNote={this.notes.deleteNote.bind(this.notes)}
             />
           </main>
         </section>
